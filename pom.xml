@@ -1,0 +1,206 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.valdemar</groupId>
+  <artifactId>projectm</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <modules>
+    <module>project-m-service</module>
+    <module>project-m-resource</module>
+  </modules>
+  <packaging>pom</packaging>
+
+  <name>Project M</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <mariadb.version>1.2.0</mariadb.version>
+    <jacoco.agentVmArg/>
+    <spring.version>2.5.6</spring.version>
+    <surefire.version>2.12</surefire.version>
+    <jackson.version>1.9.13</jackson.version>
+    <projectlombok.version>1.16.4</projectlombok.version>
+    <quartz.version>2.2.1</quartz.version>
+    <joda-time.version>2.2</joda-time.version>
+    <guava.version>14.0.1</guava.version>
+    <!--<resteasy-spring.version>2.2.1.GA</resteasy-spring.version>-->
+    <!--<resteasy-jackson-provider.version>2.3.10.Final</resteasy-jackson-provider.version>-->
+    <slf4j-simple.version>1.7.7</slf4j-simple.version>
+    <commons-lang3.version>3.4</commons-lang3.version>
+    <!-- Testing -->
+    <junit.version>4.4</junit.version>
+    <mockito.version>1.9.0</mockito.version>
+
+      <liquibase.changeLogFile>src/main/resources/database/schema.xml</liquibase.changeLogFile>
+
+  </properties>
+
+  <scm>
+    <!--<connection>scm:git:https://github.gamesys.co.uk/bingo-server/job-scheduler.git</connection>-->
+    <!--<developerConnection>scm:git:https://github.gamesys.co.uk/bingo-server/job-scheduler.git</developerConnection>-->
+    <!--<url>origin</url>-->
+  </scm>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.4</version>
+        <configuration>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${surefire.version}</version>
+        <configuration>
+          <systemProperties>
+            <java.awt.headless>true</java.awt.headless>
+          </systemProperties>
+        </configuration>
+      </plugin>
+
+        <plugin>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-maven-plugin</artifactId>
+            <version>3.0.5</version>
+            <configuration>
+                <changeLogFile>${liquibase.changeLogFile}</changeLogFile>
+                <propertyFile>liquibase.properties</propertyFile>
+            </configuration>
+        </plugin>
+
+    </plugins>
+  </build>
+
+  <dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>${mariadb.version}</version>
+        </dependency>
+
+      <dependency>
+        <groupId>org.codehaus.jackson</groupId>
+        <artifactId>jackson-mapper-asl</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${projectlombok.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.quartz-scheduler</groupId>
+        <artifactId>quartz</artifactId>
+        <version>${quartz.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.quartz-scheduler</groupId>
+        <artifactId>quartz-jobs</artifactId>
+        <version>${quartz.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>joda-time</groupId>
+        <artifactId>joda-time</artifactId>
+        <version>${joda-time.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${guava.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${commons-lang3.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-dbcp</groupId>
+        <artifactId>commons-dbcp</artifactId>
+        <version>1.2.2</version>
+      </dependency>
+
+
+      <!-- needed for JMX -->
+      <!--<dependency>-->
+        <!--<groupId>commons-modeler</groupId>-->
+        <!--<artifactId>commons-modeler</artifactId>-->
+        <!--<version>2.0.1</version>-->
+      <!--</dependency>-->
+      <!-- needed for parsing response -->
+      <!--<dependency>-->
+        <!--<groupId>jaxen</groupId>-->
+        <!--<artifactId>jaxen</artifactId>-->
+        <!--<version>1.1</version>-->
+      <!--</dependency>-->
+      <!-- for REST -->
+      <!--<dependency>-->
+        <!--<groupId>org.springframework</groupId>-->
+        <!--<artifactId>spring-webmvc</artifactId>-->
+        <!--<version>${spring.version}</version>-->
+      <!--</dependency>-->
+      <!--<dependency>-->
+        <!--<groupId>org.jboss.resteasy</groupId>-->
+        <!--<artifactId>resteasy-spring</artifactId>-->
+        <!--<version>${resteasy-spring.version}</version>-->
+      <!--</dependency>-->
+      <!-- Jackson support -->
+      <!--<dependency>-->
+        <!--<groupId>org.jboss.resteasy</groupId>-->
+        <!--<artifactId>resteasy-jackson-provider</artifactId>-->
+        <!--<version>${resteasy-jackson-provider.version}</version>-->
+      <!--</dependency>-->
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>${slf4j-simple.version}</version>
+      </dependency>
+      <!-- test -->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>${mockito.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.shazam</groupId>
+        <artifactId>shazamcrest</artifactId>
+        <version>0.7</version>
+        <scope>test</scope>
+        <exclusions>
+          <exclusion>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>com.jayway.restassured</groupId>
+        <artifactId>rest-assured</artifactId>
+        <version>2.4.1</version>
+        <scope>test</scope>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+</project>

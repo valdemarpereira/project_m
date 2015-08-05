@@ -1,0 +1,10 @@
+.project
+.classpath
+.settings
+target
+*.iml
+*.ipr
+.idea
+.DS_Store
+pom.xml.versionsBackup
+velocity.log
