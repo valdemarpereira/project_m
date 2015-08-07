@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MoodController {
 
+    private static final String KEY = "giI7FjIOBSQcqhV39OXKNFKB";
+
     @RequestMapping(value = "/mood", method = RequestMethod.POST)
     public String mood(@RequestBody String data) {
         //@RequestBody Bookmark input
