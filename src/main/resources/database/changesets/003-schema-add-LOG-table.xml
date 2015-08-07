@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+
+    <changeSet id="1" author="valdemar">
+        <createTable tableName="LOG">
+            <column name="LOG_ID" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="ACTIVITY_ID" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DATE" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NOTES" type="varchar(500)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="valdemar">
+        <addAutoIncrement
+                columnDataType="int"
+                columnName="LOG_ID"
+                incrementBy="1"
+                startWith="1"
+                tableName="LOG"/>
+    </changeSet>
+
+    <changeSet id="3" author="valdemar">
+        <addForeignKeyConstraint baseColumnNames="ACTIVITY_ID"
+                                 baseTableName="LOG"
+                                 constraintName="fk_log_activity"
+                                 deferrable="true"
+                                 initiallyDeferred="true"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="ACTIVITY_ID"
+                                 referencedTableName="ACTIVITY"/>
+    </changeSet>
+
+
+</databaseChangeLog>

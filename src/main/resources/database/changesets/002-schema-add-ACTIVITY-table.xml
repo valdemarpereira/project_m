@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+
+    <changeSet id="1" author="valdemar">
+        <createTable tableName="ACTIVITY">
+            <column name="ACTIVITY_ID" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="NAME" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(250)"/>
+            <column name="CATEGORY_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ACTIVE" type="boolean" defaultValueBoolean="true"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="valdemar">
+        <addAutoIncrement
+                columnDataType="int"
+                columnName="ACTIVITY_ID"
+                incrementBy="1"
+                startWith="1"
+                tableName="ACTIVITY"/>
+    </changeSet>
+
+    <changeSet id="3" author="valdemar">
+        <addForeignKeyConstraint baseColumnNames="CATEGORY_ID"
+                                 baseTableName="ACTIVITY"
+                                 constraintName="fk_activity_category"
+                                 deferrable="true"
+                                 initiallyDeferred="true"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="CATEGORY_ID"
+                                 referencedTableName="CATEGORY"/>
+    </changeSet>
+
+
+</databaseChangeLog>
