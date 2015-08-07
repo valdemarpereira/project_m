@@ -14,4 +14,6 @@ public class PingController {
     public String ping() {
         return "Greetings from Spring Boot!";
     }
+
+
 }
