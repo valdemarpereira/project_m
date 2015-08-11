@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <changeSet id="1" author="valdemar">
+
+    <insert tableName="ACTIVITY">
+        <!--<column name="ACTIVITY_ID" valueNumeric="1" />-->
+        <column name="NAME" value="Sprints"/>
+        <column name="DESCRIPTION" value="Sprints"/>
+        <column name="CATEGORY_ID" valueComputed="(SELECT CATEGORY_ID FROM CATEGORY WHERE CATEGORY = 'Sport')"/>
+        <column name="ACTIVE" value="true"/>
+    </insert>
+
+    <insert tableName="ACTIVITY">
+        <!--<column name="ACTIVITY_ID" valueNumeric="1" />-->
+        <column name="NAME" value="Run"/>
+        <column name="DESCRIPTION" value="Run"/>
+        <column name="CATEGORY_ID" valueComputed="(SELECT CATEGORY_ID FROM CATEGORY WHERE CATEGORY = 'Sport')"/>
+        <column name="ACTIVE" value="true"/>
+    </insert>
+
+    <insert tableName="ACTIVITY">
+        <!--<column name="ACTIVITY_ID" valueNumeric="1" />-->
+        <column name="NAME" value="Swim"/>
+        <column name="DESCRIPTION" value="Swim"/>
+        <column name="CATEGORY_ID" valueComputed="(SELECT CATEGORY_ID FROM CATEGORY WHERE CATEGORY = 'Sport')"/>
+        <column name="ACTIVE" value="true"/>
+    </insert>
+
+    <insert tableName="ACTIVITY">
+        <!--<column name="ACTIVITY_ID" valueNumeric="1" />-->
+        <column name="NAME" value="Cycle"/>
+        <column name="DESCRIPTION" value="Cycle"/>
+        <column name="CATEGORY_ID" valueComputed="(SELECT CATEGORY_ID FROM CATEGORY WHERE CATEGORY = 'Sport')"/>
+        <column name="ACTIVE" value="true"/>
+    </insert>
+
+    <insert tableName="ACTIVITY">
+        <!--<column name="ACTIVITY_ID" valueNumeric="1" />-->
+        <column name="NAME" value="Tennis"/>
+        <column name="DESCRIPTION" value="Tennis"/>
+        <column name="CATEGORY_ID" valueComputed="(SELECT CATEGORY_ID FROM CATEGORY WHERE CATEGORY = 'Sport')"/>
+        <column name="ACTIVE" value="true"/>
+    </insert>
+
+    <insert tableName="ACTIVITY">
+        <!--<column name="ACTIVITY_ID" valueNumeric="1" />-->
+        <column name="NAME" value="Yoga"/>
+        <column name="DESCRIPTION" value="Yoga"/>
+        <column name="CATEGORY_ID" valueComputed="(SELECT CATEGORY_ID FROM CATEGORY WHERE CATEGORY = 'Sport')"/>
+        <column name="ACTIVE" value="true"/>
+    </insert>
+
+
+</databaseChangeLog>

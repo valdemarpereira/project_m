@@ -6,7 +6,11 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 
-    <include file="changesets/001-schema-creation.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/001-schema-add-CATEGORY-table.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/002-schema-add-ACTIVITY-table.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/003-schema-add-LOG-table.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/004-schema-add-CATEGORY-entries.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/005-schema-add-ACTIVITY-entries.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
 

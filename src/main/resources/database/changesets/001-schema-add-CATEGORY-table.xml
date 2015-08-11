@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <databaseChangeLog
-        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 
@@ -22,11 +22,11 @@
 
     <changeSet id="2" author="valdemar">
         <addAutoIncrement
-                      columnDataType="int"
-                      columnName="CATEGORY_ID"
-                      incrementBy="1"
-                      startWith="1"
-                      tableName="CATEGORY"/>
+                columnDataType="int"
+                columnName="CATEGORY_ID"
+                incrementBy="1"
+                startWith="1"
+                tableName="CATEGORY"/>
     </changeSet>
 
 </databaseChangeLog>
