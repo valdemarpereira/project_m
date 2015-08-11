@@ -36,8 +36,6 @@
         <addForeignKeyConstraint baseColumnNames="CATEGORY_ID"
                                  baseTableName="ACTIVITY"
                                  constraintName="fk_activity_category"
-                                 deferrable="true"
-                                 initiallyDeferred="true"
                                  onDelete="CASCADE"
                                  onUpdate="RESTRICT"
                                  referencedColumnNames="CATEGORY_ID"

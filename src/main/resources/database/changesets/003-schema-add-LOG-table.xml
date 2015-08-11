@@ -35,8 +35,6 @@
         <addForeignKeyConstraint baseColumnNames="ACTIVITY_ID"
                                  baseTableName="LOG"
                                  constraintName="fk_log_activity"
-                                 deferrable="true"
-                                 initiallyDeferred="true"
                                  onDelete="CASCADE"
                                  onUpdate="RESTRICT"
                                  referencedColumnNames="ACTIVITY_ID"
