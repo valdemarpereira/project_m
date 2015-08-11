@@ -28,6 +28,8 @@
         <surefire.version>2.12</surefire.version>
         <liquibase.changeLogFile>src/main/resources/database/schema.xml</liquibase.changeLogFile>
         <java.version>1.8</java.version>
+        <projectlombok.version>1.16.4</projectlombok.version>
+
     </properties>
 
     <scm>
