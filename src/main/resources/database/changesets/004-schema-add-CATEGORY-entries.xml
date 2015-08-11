@@ -8,25 +8,27 @@
 
     <changeSet id="1" author="valdemar">
 
-    <insert tableName="CATEGORY">
-        <!--<column name="CATEGORY_ID" valueNumeric="1" />-->
-        <column name="CATEGORY" value="Sport"/>
-        <column name="DESCRIPTION" value="Sport"/>
-        <column name="ACTIVE" value="true"/>
-    </insert>
+        <insert tableName="CATEGORY">
+            <column name="CATEGORY_ID" auto/>
+            <column name="CATEGORY" value="Sport"/>
+            <column name="DESCRIPTION" value="Sport"/>
+            <column name="ACTIVE" value="true"/>
+        </insert>
 
-    <insert tableName="CATEGORY">
-        <!--<column name="CATEGORY_ID" valueNumeric="1" />-->
-        <column name="CATEGORY" value="Sleep"/>
-        <column name="DESCRIPTION" value="Sleep"/>
-        <column name="ACTIVE" value="true"/>
-    </insert>
+        <insert tableName="CATEGORY">
+            <!--<column name="CATEGORY_ID" valueNumeric="1" />-->
+            <column name="CATEGORY" value="Sleep"/>
+            <column name="DESCRIPTION" value="Sleep"/>
+            <column name="ACTIVE" value="true"/>
+        </insert>
 
-    <insert tableName="CATEGORY">
-        <!--<column name="CATEGORY_ID" valueNumeric="1" />-->
-        <column name="CATEGORY" value="Study"/>
-        <column name="DESCRIPTION" value="Study"/>
-        <column name="ACTIVE" value="true"/>
-    </insert>
+        <insert tableName="CATEGORY">
+            <!--<column name="CATEGORY_ID" valueNumeric="1" />-->
+            <column name="CATEGORY" value="Study"/>
+            <column name="DESCRIPTION" value="Study"/>
+            <column name="ACTIVE" value="true"/>
+        </insert>
+
+    </changeSet>
 
 </databaseChangeLog>
