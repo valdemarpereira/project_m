@@ -9,7 +9,7 @@
     <changeSet id="1" author="valdemar">
 
         <insert tableName="CATEGORY">
-            <column name="CATEGORY_ID" auto/>
+            <!--<column name="CATEGORY_ID" auto/>-->
             <column name="CATEGORY" value="Sport"/>
             <column name="DESCRIPTION" value="Sport"/>
             <column name="ACTIVE" value="true"/>
