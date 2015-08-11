@@ -12,7 +12,7 @@
             <column name="LOG_ID" type="int">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="ACTIVITY_ID" type="varchar(100)">
+            <column name="ACTIVITY_ID" type="int">
                 <constraints nullable="false"/>
             </column>
             <column name="DATE" type="DATETIME">
@@ -40,6 +40,5 @@
                                  referencedColumnNames="ACTIVITY_ID"
                                  referencedTableName="ACTIVITY"/>
     </changeSet>
-
 
 </databaseChangeLog>
