@@ -4,6 +4,7 @@ import com.valdemar.dao.Activity;
 import com.valdemar.dao.exceptions.ActivityNotFoundException;
 import com.valdemar.service.ActivityService;
 import com.valdemar.service.LogService;
+import com.valdemar.service.SlackInvokeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,9 @@ public class LogController {
 
     @Autowired
     ActivityService activityService;
+
+    @Autowired
+    SlackInvokeService slackInvokeService;
 
     @RequestMapping(
             value = "/log",
@@ -49,6 +53,7 @@ public class LogController {
 
         try {
             logService.log(command[0], (command.length > 1 ? command[1] : ""));
+            slackInvokeService.notify(command[0]);
             return "Activity " + command[0] + " has been logged: Your Mood status should be around XXX %"; //TODO: Calculate moood
         } catch (ActivityNotFoundException e) {
             return "Unavailable Activity. Try /log help for the list of available activities";
