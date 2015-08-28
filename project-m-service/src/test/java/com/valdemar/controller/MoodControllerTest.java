@@ -44,7 +44,7 @@ public class MoodControllerTest {
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED)
         )
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("Ju's Project M SlackOutgoingData(token=giI7FjIOBSQcqhV39OXKNFKB, team_id=T0001, team_domain=example, channel_id=C2147483705, channel_name=test, user_id=U2147483697, user_name=Steve, command=/weather, text=94070)")));
+                .andExpect(content().string(equalTo("Missing Arg. Try /mood help")));
     }
 
 }

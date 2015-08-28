@@ -24,11 +24,9 @@ public class MoodController {
             return "Missing Arg. Try /mood help";
         }
 
-
-
         switch (command[0]){
             case "help":
-                return "Judita' Mood App. [ping, stats, log, more_to_come...]";
+                return "Judita' Mood App. [ping, stats, log, , list, more_to_come...]";
             case "ping":
                 return "pong...";
             case "valdemar":
@@ -37,8 +35,10 @@ public class MoodController {
                 return "stats for the last 7 days";
             case "log":
                 return "lets log something";
+            case "list":
+
             default:
-                return "Missing Arg";
+                return "Missing Arg. Try /mood help";
         }
     }
 }
